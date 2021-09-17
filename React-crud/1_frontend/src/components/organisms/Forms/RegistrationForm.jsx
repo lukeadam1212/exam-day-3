@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Input from "../../atoms/Inputs/Input";
 import styled from "styled-components";
 import Button from "../../atoms/Buttons/Button";
 import axios from "axios";
+import TextInputs from "../../molecules/FormGroups/TextInputs";
+import NumberInputs from "../../molecules/FormGroups/NumberInputs";
+import EmailInputs from "../../molecules/FormGroups/EmailInputs";
 
 // custom styles
 const StyledForm = styled.form`
@@ -20,12 +23,36 @@ const StyledForm = styled.form`
 `;
 
 const Form = () => {
+  const formRef = useRef;
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    age: "",
+    password: "",
+  });
+
+  const [message, setMessage] = useState("");
+
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (
+      !e.target.name.value ||
+      !e.target.email.value ||
+      !e.target.age.value ||
+      !e.target.password.value
+    ) {
+      setMessage("Please fill in all fields");
+      formRef.current.reset();
+      return;
+    }
+
     const name = e.target[0].value;
     const email = e.target[1].value;
     const age = e.target[2].value;
     const password = e.target[3].value;
+
+    // creating new user object
     const userData = {
       name: name,
       surname: email,
@@ -39,13 +66,46 @@ const Form = () => {
     e.target.reset();
   };
   return (
-    <StyledForm onSubmit={submitHandler}>
-      <Input inputType="text" text="name" />
-      <Input InputType="text" text="surname" />
-      <Input InputType="text" text="email" />
-      <Input InputType="text" text="image" required />
-      <Button buttonType="submit" buttonText="Submit" />
-    </StyledForm>
+    <>
+      <StyledForm onSubmit={submitHandler}>
+        <TextInputs
+          data={[
+            {
+              label: "User Name",
+              id: "name",
+              type: "text",
+            },
+          ]}
+        />
+        <EmailInputs
+          data={[
+            {
+              label: "User Email",
+              id: "email",
+            },
+          ]}
+        />
+        <NumberInputs
+          data={[
+            {
+              label: "User Age",
+              id: "age",
+            },
+          ]}
+        />
+        <TextInputs
+          data={[
+            {
+              label: "User Password",
+              id: "password",
+              type: "password",
+            },
+          ]}
+        />
+        <Button buttonType="submit" buttonText="Submit" />
+      </StyledForm>
+      {message && <p>{message}</p>}
+    </>
   );
 };
 
