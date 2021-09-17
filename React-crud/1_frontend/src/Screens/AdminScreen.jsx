@@ -1,12 +1,11 @@
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+
+// components
 import RegistrationForm from "../components/organisms/Forms/RegistrationForm";
-import Button from "../components/atoms/Buttons/Button";
 import UserCard from "../components/organisms/Forms/UserCard";
 
 // custom styles
-
 const StyledDivAdmin = styled.div`
   height: 90vh;
   margin: 0 auto;

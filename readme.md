@@ -1,3 +1,5 @@
+vsc code is used to compile the code and run local servers
+
 1_frontend
 
 installing react:
@@ -5,8 +7,8 @@ npx create-react-app
 
 installing packages:
 npm i react-router-dom
-npm i axios
 npm i styled-components
+npm i axios
 
 launching react app:
 npm start
