@@ -62,7 +62,7 @@ const Form = () => {
     axios
       .post("http://localhost:5000/api/users", userData)
       .then((res) => console.log(res));
-    prompt("new user uploaded");
+    setMessage("New user created");
     e.target.reset();
   };
   return (
