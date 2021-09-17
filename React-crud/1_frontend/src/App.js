@@ -7,8 +7,6 @@ import Footer from "./components/molecules/Footer";
 
 // Screens
 import HomeScreen from "./Screens/HomeScreen";
-import AboutScreen from "./Screens/AboutScreen";
-import ContactScreen from "./Screens/ContactScreen";
 
 // Global Styles
 import { GlobalStyle } from "./GlobalStyles";
@@ -21,8 +19,6 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={HomeScreen} />
-          <Route path="/about-us" component={AboutScreen} />
-          <Route path="/contact-us" component={ContactScreen} />
         </Switch>
       </Router>
       <Footer />

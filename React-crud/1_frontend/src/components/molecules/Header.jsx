@@ -44,13 +44,7 @@ const Header = () => {
       <nav>
         <StyledUl>
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about-us">About Us</Link>
-          </li>
-          <li>
-            <Link to="/contact-us">Contact Us</Link>
+            <Link to="/">Admin page</Link>
           </li>
         </StyledUl>
       </nav>
