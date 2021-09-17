@@ -42,4 +42,11 @@ label {
 span {
   color: #ffe281;
 }
+
+h3 {
+  color: orange;
+  position: absolute;
+  opacity: 0.3;
+  font-size: 12rem;
+}
 `;

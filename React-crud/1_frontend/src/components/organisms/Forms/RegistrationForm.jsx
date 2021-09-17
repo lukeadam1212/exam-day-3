@@ -26,12 +26,6 @@ const StyledForm = styled.form`
 
 const Form = () => {
   const formRef = useRef;
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    age: "",
-    password: "",
-  });
 
   const [message, setMessage] = useState("");
 
@@ -49,25 +43,19 @@ const Form = () => {
       return;
     }
 
-    userData({
-      name: e.target.name.value,
-      email: e.target.email.value,
-      age: e.target.age.value,
-      password: e.target.password.value,
-    });
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const age = e.target[2].value;
+    const password = e.target[3].value;
 
-    // const name = e.target[0].value;
-    // const email = e.target[1].value;
-    // const age = e.target[2].value;
-    // const password = e.target[3].value;
+    // creating new user object
+    const userData = {
+      name: name,
+      email: email,
+      age: age,
+      password: password,
+    };
 
-    // // creating new user object
-    // const userData = {
-    //   name: name,
-    //   email: email,
-    //   age: age,
-    //   password: password,
-    // };
     axios
       .post("http://localhost:5000/api/users", userData)
       .then((res) => console.log(res));
@@ -113,7 +101,7 @@ const Form = () => {
         />
         <Button buttonType="submit" buttonText="Submit" />
       </StyledForm>
-      {message && <p>{message}</p>}
+      {message && <h3>{message}</h3>}
     </>
   );
 };

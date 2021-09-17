@@ -44,7 +44,7 @@ const Header = () => {
       <nav>
         <StyledUl>
           <li>
-            <Link to="/">Admin page</Link>
+            <Link to="/admin">Admin page</Link>
           </li>
         </StyledUl>
       </nav>

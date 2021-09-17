@@ -6,7 +6,7 @@ import Header from "./components/molecules/Header";
 import Footer from "./components/molecules/Footer";
 
 // Screens
-import HomeScreen from "./Screens/HomeScreen";
+import AdminScreen from "./Screens/AdminScreen";
 
 // Global Styles
 import { GlobalStyle } from "./GlobalStyles";
@@ -18,7 +18,7 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/" component={HomeScreen} />
+          <Route path="/admin" component={AdminScreen} />
         </Switch>
       </Router>
       <Footer />
