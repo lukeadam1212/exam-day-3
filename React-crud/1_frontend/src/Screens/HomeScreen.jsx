@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Form from "../components/organisms/Forms/Form";
+import RegistrationForm from "../components/organisms/Forms/RegistrationForm";
 import Button from "../components/atoms/Buttons/Button";
 
 // custom styles
@@ -62,6 +62,8 @@ const HomeScreen = () => {
   const ref = useRef();
   const [userProfile, setUserProfile] = useState([]);
   useEffect(() => {
+    // page title
+    document.title = "Admin page";
     axios
       .get("http://localhost:5000/api/users")
       .then((res) => setUserProfile([...res.data]));
@@ -74,7 +76,7 @@ const HomeScreen = () => {
     <StyledDivHome>
       <h1>Admin</h1>
       <h2>Register new users</h2>
-      <Form />
+      <RegistrationForm />
       <h2>All registered users</h2>
       <StyledUsers>
         {userProfile.map((item) => (

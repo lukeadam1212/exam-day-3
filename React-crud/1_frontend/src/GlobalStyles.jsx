@@ -26,4 +26,16 @@ body {
 background-attachment: fixed;
 background-size: cover;
 }
+
+input {
+  width: 15rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  outline: none;
+  padding-left: 1rem;
+}
+
+label {
+  color: #ecb500;
+}
 `;

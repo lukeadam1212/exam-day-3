@@ -23,14 +23,14 @@ const Form = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const name = e.target[0].value;
-    const surname = e.target[1].value;
-    const email = e.target[2].value;
-    const image = e.target[3].value;
+    const email = e.target[1].value;
+    const age = e.target[2].value;
+    const password = e.target[3].value;
     const userData = {
       name: name,
-      surname: surname,
-      email: email,
-      image: image,
+      surname: email,
+      email: age,
+      image: password,
     };
     axios
       .post("http://localhost:5000/api/users", userData)
