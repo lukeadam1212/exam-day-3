@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
-import Input from "../../atoms/Inputs/Input";
 import styled from "styled-components";
-import Button from "../../atoms/Buttons/Button";
 import axios from "axios";
+
+// components
 import TextInputs from "../../molecules/FormGroups/TextInputs";
 import NumberInputs from "../../molecules/FormGroups/NumberInputs";
 import EmailInputs from "../../molecules/FormGroups/EmailInputs";
+
+import Button from "../../atoms/Buttons/Button";
 
 // custom styles
 const StyledForm = styled.form`
@@ -24,7 +26,7 @@ const StyledForm = styled.form`
 
 const Form = () => {
   const formRef = useRef;
-  const [user, setUser] = useState({
+  const [userData, setUserData] = useState({
     name: "",
     email: "",
     age: "",
@@ -47,18 +49,25 @@ const Form = () => {
       return;
     }
 
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const age = e.target[2].value;
-    const password = e.target[3].value;
+    userData({
+      name: e.target.name.value,
+      email: e.target.email.value,
+      age: e.target.age.value,
+      password: e.target.password.value,
+    });
 
-    // creating new user object
-    const userData = {
-      name: name,
-      surname: email,
-      email: age,
-      image: password,
-    };
+    // const name = e.target[0].value;
+    // const email = e.target[1].value;
+    // const age = e.target[2].value;
+    // const password = e.target[3].value;
+
+    // // creating new user object
+    // const userData = {
+    //   name: name,
+    //   email: email,
+    //   age: age,
+    //   password: password,
+    // };
     axios
       .post("http://localhost:5000/api/users", userData)
       .then((res) => console.log(res));

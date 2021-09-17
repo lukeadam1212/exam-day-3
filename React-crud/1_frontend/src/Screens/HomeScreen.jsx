@@ -81,10 +81,19 @@ const HomeScreen = () => {
       <StyledUsers>
         {userProfile.map((item) => (
           <StyledUserCard key={item._id}>
-            <h5>{item.name}</h5>
-            <p>{item.email}</p>
-            <p>{item.age}</p>
-            <p>{item.password}</p>
+            <p>
+              <span>NAME: </span>
+              {item.name}
+            </p>
+            <p>
+              <span>EMAIL:</span> {item.email}
+            </p>
+            <p>
+              <span>AGE:</span> {item.age}
+            </p>
+            <p>
+              <span>PASSWORD:</span> {item.password}
+            </p>
             <button
               onClick={() => {
                 deleteUser(item._id);

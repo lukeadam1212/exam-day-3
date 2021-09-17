@@ -36,6 +36,10 @@ input {
 }
 
 label {
-  color: #ecb500;
+  color: #ffe281;
+}
+
+span {
+  color: #ffe281;
 }
 `;
