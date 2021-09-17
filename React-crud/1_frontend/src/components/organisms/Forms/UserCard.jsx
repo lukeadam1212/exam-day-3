@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Button from "../../atoms/Buttons/Button";
+import SelectInputs from "../../molecules/FormGroups/SelectInputs";
+import TextInputs from "../../molecules/FormGroups/TextInputs";
 
 // custom style
 const StyledUserCard = styled.div`
@@ -66,6 +68,35 @@ const UserCard = () => {
           <p>
             <span>PASSWORD:</span> {item.password}
           </p>
+
+          <SelectInputs
+            data={[
+              {
+                value: "test",
+                text: "text",
+                stateName: "test",
+                key: "key",
+              },
+            ]}
+          />
+          <TextInputs
+            data={[
+              {
+                label: "Update User",
+                id: "name",
+                type: "text",
+              },
+            ]}
+            ref={ref}
+          />
+          <Button
+            buttonText="update"
+            action={(e) => {
+              axios.put(`http://localhost:5000/api/users/${item._id}`, {
+                name: ref.current.value,
+              });
+            }}
+          />
           <button
             onClick={() => {
               deleteUser(item._id);
@@ -73,15 +104,6 @@ const UserCard = () => {
           >
             Delete user
           </button>
-          <input type="text" ref={ref} />
-          <Button
-            buttonText="change age"
-            action={(e) => {
-              axios.put(`http://localhost:5000/api/users/${item._id}`, {
-                age: ref.current.value,
-              });
-            }}
-          />
         </StyledUserCard>
       ))}
       )
