@@ -49,4 +49,16 @@ h3 {
   opacity: 0.3;
   font-size: 12rem;
 }
+
+h4 {
+  color: #ffd8ca;
+}
+
+h6 {
+  color: orange;
+  position: absolute;
+  opacity: 0.3;
+  font-size: 12rem;
+  bottom: 25rem;
+}
 `;

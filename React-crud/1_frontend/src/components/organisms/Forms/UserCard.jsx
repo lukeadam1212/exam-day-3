@@ -40,6 +40,7 @@ const UserCard = () => {
   // Hooks
   const ref = useRef();
   const [userProfile, setUserProfile] = useState([]);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     axios
@@ -49,6 +50,7 @@ const UserCard = () => {
   const deleteUser = (id) => {
     axios.delete(`http://localhost:5000/api/users/${id}`);
     console.log("User deleted");
+    setMessage("User deleted");
   };
 
   return (
@@ -68,7 +70,7 @@ const UserCard = () => {
           <p>
             <span>PASSWORD:</span> {item.password}
           </p>
-
+          <h4>Choose field to update</h4>
           <SelectInputs
             data={[
               {
@@ -82,7 +84,7 @@ const UserCard = () => {
           <TextInputs
             data={[
               {
-                label: "Update User",
+                label: "Enter new value",
                 id: "name",
                 type: "text",
               },
@@ -106,7 +108,7 @@ const UserCard = () => {
           </button>
         </StyledUserCard>
       ))}
-      )
+      {message && <h6>{message}</h6>}
     </>
   );
 };
